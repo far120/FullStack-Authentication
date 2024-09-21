@@ -6,12 +6,14 @@ import ShowAuth from './pages/authentication/userdata/show';
 import Update from './pages/authentication/userdata/updates';
 import NavBar from './pages/authentication/navbar/nav';
 import Profile from './pages/authentication/userdata/profile';
-
+import Home from './pages/homepage/home';
+ 
 function App() {
   return (
     <>
     <NavBar />
      <Routes>
+      <Route exact path="/" element={<Home />} /> 
       <Route  path="/login" element={<Login />} />
       <Route  path="/signup" element={<Signup />} />
       <Route  path="/auth" element={<Auth />} />

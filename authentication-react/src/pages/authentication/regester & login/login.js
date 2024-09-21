@@ -30,7 +30,7 @@ export default function Login() {
           setValue(response.data.token);
             // Cookies.set('token', response.data.token, { expires: 7 });
             // localStorage.setItem('token', response.data.token);
-            navigate('/signup'); 
+            navigate('/'); 
         })
         .catch((error) => {
             alert("email or password not valid")

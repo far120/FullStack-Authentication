@@ -4,6 +4,8 @@ import axios from 'axios';
 import '../regester & login/login.css';
 import { Mycontext } from '../regester & login/context';
 
+
+
 export default function Update() {
     const { value, setValue } = useContext(Mycontext);
     const navigate = useNavigate();
@@ -22,6 +24,7 @@ export default function Update() {
             }
         )
             .then(response => {
+                console.log(response.data);
                 const userData = response.data;
                 setName(userData.name);
                 setEmail(userData.email);
@@ -31,30 +34,34 @@ export default function Update() {
             });
     }, [id]);
 
+
     function handleNameChange(e) {
         setName(e.target.value);
     }
     function handleEmailChange(e) {
         setEmail(e.target.value);
     }
+   
+
     
 
     async function handleSubmit(e) {
         e.preventDefault();
         setAccept(true);
-
-        // Basic validation
-        if (name === ""  || email === "") {
-            return false;
+        if (name === "" || email === "") {
+           return false;
         }
 
         // Send PUT request to update user details
+
         axios.put(`http://localhost:2024/api/authentication/${id}`, {
             name: name,
             email: email,
+           
+          
         }, {
             headers: {
-                'Authorization': ` ${localStorage.getItem('token')}`  // Added 'Bearer ' prefix for token
+                'Authorization': ` ${localStorage.getItem('token')}`  
             }
         })
         .then(response => {
@@ -64,7 +71,8 @@ export default function Update() {
         .catch(error => {
             console.error('Error updating user:', error);
         });
-    }
+
+}
 
     return (
         <div className="back-image">
@@ -91,7 +99,7 @@ export default function Update() {
                     />
                     <br />
                     {accept && email === "" && <p className="error">Email is required</p>}
-
+                  
                 
                     <input type="submit" value="Update" />
                 </form>
