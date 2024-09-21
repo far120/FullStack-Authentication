@@ -16,6 +16,7 @@ const NavBar = () => {
     localStorage.removeItem('token');
     setValue("default value");
     navigate('/login');
+   
   };
   if(!localStorage.getItem('token') && value !== "default value") {
       localStorage.setItem('token', value);
@@ -25,7 +26,6 @@ const NavBar = () => {
     setValue(localStorage.getItem("token"))
   }
 
-  console.log(value)
   return (
     <nav className="navbar">
       <div className="navbar-container">
@@ -37,10 +37,10 @@ const NavBar = () => {
           <i className="fa-solid fa-cart-shopping"></i> Cart
         </Link>
         <Link to="#" className="nav-link">Categories</Link>
-        { role == "adminserver" ? (
+        { value !== "default value" && role == "adminserver" ? (
          <Link to="/auth" className="nav-link">Auth</Link>
         ):
-        (null)}      
+        (<span></span>)}      
         <div className="nav-dropdown">
           <button className="dropdown-btn">More</button>
           <div className="dropdown-content">
