@@ -13,7 +13,7 @@ mongoose.connect(process.env.MONGO_URI)
 .catch(err => console.error(err));
 
 
-  //f.lfg
+
 // instantiate express instance
 const app = express();
 
