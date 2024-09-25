@@ -7,7 +7,7 @@ import Update from './pages/authentication/userdata/updates';
 import NavBar from './pages/authentication/navbar/nav';
 import Profile from './pages/authentication/userdata/profile';
 import Home from './pages/homepage/home';
-import { useTokenDecoder } from './pages/authentication/jwt/useTokenDecoder';
+import  useTokenDecoder  from './pages/authentication/jwt/useTokenDecoder';
 import NotFound from './pages/homepage/NotFound';
 
 function App() {

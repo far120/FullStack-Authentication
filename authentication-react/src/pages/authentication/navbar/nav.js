@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Mycontext, MyContext } from '../regester & login/context';
 import './nav.css';
 import images from '../regester & login/images/pngtree-a-conceptual-illustration-of-web-design-development-and-seo-optimization-in-image_13584944.png';
-import { useTokenDecoder } from '../jwt/useTokenDecoder';
+import  useTokenDecoder  from '../jwt/useTokenDecoder';
 const NavBar = () => {
   const { value, setValue } = useContext(Mycontext);
   const navigate = useNavigate();

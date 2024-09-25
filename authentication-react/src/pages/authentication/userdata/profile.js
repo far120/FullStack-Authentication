@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { Mycontext } from "../regester & login/context";
 import "./auth.css";
-import { useTokenDecoder } from '../jwt/useTokenDecoder';
+import  useTokenDecoder  from '../jwt/useTokenDecoder';
 
 export default function Profile() {
     const { value, setValue } = useContext(Mycontext);

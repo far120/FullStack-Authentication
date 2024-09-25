@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import { jwtDecode } from 'jwt-decode'; 
 import NavBar from '../navbar/nav';
 import { Mycontext } from '../regester & login/context';
-export const useTokenDecoder = () => {
+export default function useTokenDecoder(){
     const { value, setValue } = useContext(Mycontext);
     const [decodedToken, setDecodedToken] = useState(null);
 
