@@ -44,6 +44,6 @@ const authenticationscehme = new mongoose.Schema({
     //     return jwt.sign({_id: this._id , role:this.role  }, process.env.TOKEN_SECRET, { expiresIn: '7d' });
     // }
 
-const Authentications = mongoose.model('Authentications', authenticationscehme);
+const Authentications = mongoose.model('Authentication', authenticationscehme);
 
 module.exports = Authentications;

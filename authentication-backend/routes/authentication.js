@@ -56,6 +56,7 @@ routes.get('/', adminserver ,async (req, res) => {
 
 
 
+
 routes.get('/:id', validationtoken , async (req, res) => {
     try {
         const authentication = await Authentications.findById(req.params.id).select("-password");
@@ -94,7 +95,8 @@ routes.get('/:id', validationtoken , async (req, res) => {
         // password: bcrypt.hashSync(req.body.password, 16),
         password : req.body.password,
         role:req.body.role,
-        avatar: req.body.avatar,
+        // avatar: req.body.avatar,
+        avatar: req.file.filename
     })
 
 

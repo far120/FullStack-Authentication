@@ -46,10 +46,10 @@ export default function Auth() {
                     <div className="user-card" key={user._id}>
                         <hr className="divider" />
                         <h2 className="user-id">{user._id}</h2>
+                        <img className="user-image" style={{ width: "200px", height: "250px", objectFit: "cover" }} src={`http://localhost:2024/uploads/${user.avatar}`} alt="User Avatar" />
                         <p className="user-name">{user.name}</p>
                         <p className="user-email">{user.email}</p>
                         <div className="button-group">
-                            <button className="btn"><Link to={`/auth/${user._id}`}>Show</Link></button>
                             <button className="btn"><Link to={`/updates/${user._id}`}>Update Auth</Link></button>
                             <button className="btn delete-btn" onClick={() => remove(user._id)}>Delete</button>
                         </div>

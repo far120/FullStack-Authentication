@@ -26,7 +26,7 @@ export default function SignUp() {
     function handleImageChange(e) {
         const file = e.target.files[0];
         if (file)
-            setavatar(file.name);
+            setavatar(file); 
 
     }
     console.log(avatar);
@@ -44,6 +44,11 @@ export default function SignUp() {
                 email,
                 password,
                 avatar
+            },
+            {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
             })
             .then(response => {
                 navigate("/login");
