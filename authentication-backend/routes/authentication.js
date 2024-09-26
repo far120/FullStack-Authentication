@@ -103,7 +103,7 @@ routes.get('/:id', validationtoken , async (req, res) => {
     try {
         console.log(req.body);
        const authentication = await newauthentication.save();
-        const token = jwt.sign({_id: authentication._id , role:authentication.role  }, process.env.TOKEN_SECRET, { expiresIn: '30d' });
+        const token = jwt.sign({_id: authentication._id , role:authentication.role , avatar:authentication.avatar  }, process.env.TOKEN_SECRET, { expiresIn: '30d' });
         authentication.token = token;
         await authentication.save();
         // const token = newauthentication.genratetoken();
@@ -179,7 +179,7 @@ routes.post('/login', async (req, res) => {
     const validPassword = req.body.password === user.password || bcrypt.compareSync(req.body.password, user.password)
     if(!validPassword) return res.status(400).send("Invalid email or password");
 
-    const token = jwt.sign({_id: user._id , role:user.role  }, process.env.TOKEN_SECRET, { expiresIn: '30d' });
+    const token = jwt.sign({_id: user._id , role:user.role ,  avatar:user.avatar  }, process.env.TOKEN_SECRET, { expiresIn: '30d' });
     user.token = token;
     await user.save();
     

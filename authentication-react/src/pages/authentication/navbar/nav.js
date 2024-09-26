@@ -7,9 +7,10 @@ import  useTokenDecoder  from '../jwt/useTokenDecoder';
 const NavBar = () => {
   const { value, setValue } = useContext(Mycontext);
   const navigate = useNavigate();
-
   const userData = useTokenDecoder();
   const role =  userData?.role ;
+  const avatar = userData?.avatar;
+
 
 
   const handleLogout = () => {
@@ -69,7 +70,7 @@ const NavBar = () => {
           ) : (
             <div className="profile-dropdown">
               <button className="profile-btn">
-                <img src={images} alt="Profile" className="profile-img" />
+                <img  src={`http://localhost:2024/uploads/${avatar}`} alt="Profile" className="profile-img" />
               </button>
               <div className="profile-dropdown-content">
                 <Link to="/profile" className="dropdown-item">My Profile</Link>
