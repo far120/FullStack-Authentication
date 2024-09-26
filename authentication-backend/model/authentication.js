@@ -28,6 +28,11 @@ const authenticationscehme = new mongoose.Schema({
     },
     token:{
         type:String
+    },
+    avatar:{
+        type:String,
+        default: "uploads/download.png"
+  
     }
 },
     {

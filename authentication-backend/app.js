@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
 dotenv.config();
+const path = require('path');
 
 
 
@@ -27,14 +28,13 @@ app.use(express.json());
 app.use(cors());
 app.use(logger);
 app.use('/api/authentication', Authentications);
+app.use('/uploads', express.static(path.join(__dirname,'uploads')))
+app.all('*', (req, res) => {
+    res.status(404).send({ status: "error",  msg: "Not Found" });
+});
 
 
 
-// app.use((req, res, next) => {
-//     const error = new Error('Not Found');
-//     error.status = 404;
-//     next(error);
-//   });
 
 
 
@@ -43,7 +43,7 @@ app.get('/', (req, res) => {
     res.send('Hello, World!');
 })
 
-port = process.env.PORT || 2024 ;
+port = process.env.PORT || 2004 ;
 app.listen(port, () => console.log(`Server running on port ${port}`));
 
 
