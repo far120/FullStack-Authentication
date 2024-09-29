@@ -67,10 +67,13 @@ export default function Update() {
             }
         })
         .then(response => {
-            console.log('User updated successfully:', response.data);
-            navigate('/'); 
+            if (response.status==200 || response.status== 201) {
+                alert('User updated successfully!');
+                navigate('/');
+            } 
         })
         .catch(error => {
+            alert(error.response.data);
             console.error('Error updating user:', error);
         });
 

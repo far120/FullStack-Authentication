@@ -35,6 +35,7 @@ export default function Auth() {
             setUser(user.filter(u => u._id!== id));
         })
         .catch(error => {
+            alert(error.response.data);
             console.log(error);
         });
     }

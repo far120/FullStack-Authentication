@@ -29,7 +29,7 @@ export default function SignUp() {
             setavatar(file); 
 
     }
-    console.log(avatar);
+    
     
     async function handleSubmit(e) {
         e.preventDefault();
@@ -51,10 +51,15 @@ export default function SignUp() {
                 }
             })
             .then(response => {
-                navigate("/login");
+                if (response.status === 200 || response.status ===201) {
+                    alert("SignUp successful!");
+                    navigate("/login");
+                }
             })
             .catch(error => {
                 console.error('Error:', error);
+                alert(error.response.data);
+
             });
     
     }
